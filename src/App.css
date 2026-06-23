@@ -1,231 +1,612 @@
+/* ===================== SHELL ===================== */
 .app-shell {
-  width: min(1200px, 96vw);
+  width: min(940px, 96vw);
   margin: 0 auto;
-  padding: 18px 0 28px;
+  padding: 28px 16px 64px;
 }
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 12px;
+/* ===================== PROJECT BANNER ===================== */
+.project-banner {
+  text-align: center;
+  margin-bottom: 32px;
+  padding: 32px 24px 28px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 22px;
+  color: #fff;
+  box-shadow: 0 8px 32px rgba(102, 126, 234, 0.38);
+}
+
+.project-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.75);
   margin-bottom: 12px;
 }
 
-.topbar h1 {
+.project-title {
+  font-size: clamp(1.2rem, 3.5vw, 1.9rem);
+  font-weight: 800;
+  line-height: 1.25;
+  color: #fff;
   margin: 0;
-  font-size: 1.25rem;
 }
 
-.controls-inline {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.controls-inline label {
-  font-size: 0.88rem;
-  color: #5f6368;
-}
-
-select,
-button {
-  height: 34px;
-  border-radius: 8px;
-  border: 1px solid #dadce0;
+/* ===================== STEP CARD ===================== */
+.step-card {
   background: #fff;
-  color: #202124;
-  padding: 0 10px;
+  border-radius: 20px;
+  padding: 28px 28px 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.07);
+  border: 1px solid #eef0f4;
+}
+
+.step-badge {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.7px;
+  text-transform: uppercase;
+  padding: 5px 14px;
+  border-radius: 99px;
+  margin-bottom: 14px;
+}
+
+.step-heading {
+  font-size: clamp(1.3rem, 3.5vw, 1.85rem);
+  color: #1a1a2e;
+  margin: 0 0 8px;
+}
+
+.step-sub {
+  color: #6b7280;
+  font-size: 0.97rem;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ===================== INTERESTS GRID (TELA 1) ===================== */
+.interests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(138px, 1fr));
+  gap: 16px;
+  margin: 28px 0 20px;
+}
+
+.interest-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 26px 14px;
+  border-radius: 18px;
+  border: 2.5px solid #e5e7eb;
+  background: #fff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
   font-family: inherit;
 }
 
-button {
-  cursor: pointer;
+.interest-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 26px rgba(0, 0, 0, 0.12);
+  border-color: var(--ic);
 }
 
-.hint {
-  margin: 0 0 12px;
+.interest-card.selected {
+  border-color: var(--ic);
+  background: color-mix(in srgb, var(--ic) 9%, #fff);
+  box-shadow: 0 6px 22px color-mix(in srgb, var(--ic) 28%, transparent);
+}
+
+.ic-emoji {
+  font-size: 2.6rem;
+  line-height: 1;
+}
+
+.ic-label {
   font-size: 0.9rem;
-  color: #5f6368;
-}
-
-.browser-shell {
-  border: 1px solid #dadce0;
-  border-radius: 14px;
-  overflow: hidden;
-  background: #fff;
-}
-
-.browser-tabs {
-  display: flex;
-  gap: 4px;
-  padding: 6px;
-  background: #f1f3f4;
-  border-bottom: 1px solid #dadce0;
-}
-
-.tab-btn {
-  border: 1px solid #dadce0;
-  background: #fff;
-  color: #5f6368;
-  border-radius: 8px;
-  padding: 0 12px;
-  height: 32px;
-  font-weight: 600;
-}
-
-.tab-btn.active {
-  background: #fff;
-  color: #111;
-  border-color: #bfc5cc;
-}
-
-.network-shell {
-  border: none;
-  border-radius: 0;
-  background: #fff;
-  overflow: hidden;
-}
-
-.network-top {
-  height: 46px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 14px;
-  border-bottom: 1px solid #efefef;
-}
-
-.ig-shell .network-top {
-  background: linear-gradient(90deg, #fff, #fff3f8 65%, #fff);
-}
-
-.x-shell .network-top {
-  background: #fff;
-}
-
-.live-chip {
-  font-size: 0.72rem;
-  padding: 3px 8px;
-  border-radius: 999px;
-  border: 1px solid #dadce0;
-  color: #5f6368;
-}
-
-.feed-list {
-  display: grid;
-}
-
-.feed-card {
-  padding: 12px 14px;
-  border-bottom: 1px solid #efefef;
-}
-
-.ig-shell .feed-card {
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.x-shell .feed-card {
-  border-bottom: 1px solid #e9ecef;
-}
-
-.card-top {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.avatar {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  display: grid;
-  place-items: center;
-  color: #fff;
-  font-size: 0.78rem;
   font-weight: 700;
-  background: linear-gradient(145deg, #fd1d1d, #fcb045);
+  color: #1a1a2e;
+}
+
+.ic-check {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: var(--ic);
+  color: #fff;
+  border-radius: 50%;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.72rem;
+  font-weight: 900;
+}
+
+/* ===================== CTA BUTTON ===================== */
+.sel-count {
+  text-align: center;
+  color: #6b7280;
+  font-size: 0.88rem;
+  margin-bottom: 14px;
+}
+
+.cta-btn {
+  display: block;
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 15px 28px;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  font-family: inherit;
+  border: none;
+  border-radius: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 18px rgba(102, 126, 234, 0.4);
+}
+
+.cta-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(102, 126, 234, 0.52);
+}
+
+.cta-btn:disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.reset-btn {
+  background: linear-gradient(135deg, #374151, #1f2937);
+  box-shadow: 0 4px 18px rgba(55, 65, 81, 0.35);
+}
+
+.reset-btn:hover {
+  box-shadow: 0 8px 26px rgba(55, 65, 81, 0.45) !important;
+}
+
+/* ===================== EXPLAINER BOX ===================== */
+.explainer-box {
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 1px solid #c7d2fe;
+  border-radius: 16px;
+  padding: 18px 22px;
+  margin-top: 24px;
+}
+
+.explainer-box strong {
+  color: #4338ca;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+.explainer-box p {
+  color: #4b5563;
+  line-height: 1.65;
+  font-size: 0.9rem;
+}
+
+/* ===================== PROGRESS (TELA 2) ===================== */
+.progress-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-top: 20px;
+}
+
+.progress-track {
+  height: 14px;
+  background: #e5e7eb;
+  border-radius: 99px;
   overflow: hidden;
 }
 
-.x-shell .avatar {
-  background: #1d9bf0;
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #667eea, #764ba2);
+  border-radius: 99px;
+  transition: width 0.4s ease;
 }
 
-.avatar-img {
+.progress-label {
+  font-size: 0.85rem;
+  color: #6b7280;
+  text-align: center;
+}
+
+/* ===================== FEED LAYOUT (TELA 2) ===================== */
+.feed-layout {
+  display: grid;
+  grid-template-columns: 1fr 272px;
+  gap: 22px;
+  align-items: start;
+  margin-bottom: 24px;
+}
+
+@media (max-width: 700px) {
+  .feed-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+.feed-col {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* ===================== SIM CARDS (TELA 2) ===================== */
+.sim-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+  border: 1.5px solid #f0f0f0;
+  transition: box-shadow 0.2s;
+}
+
+.sim-card.interacted {
+  border-color: #d1fae5;
+  box-shadow: 0 2px 14px rgba(34, 197, 94, 0.1);
+}
+
+.sim-card-top {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 14px;
+}
+
+.sim-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.sim-author {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.sim-author strong {
+  font-size: 0.88rem;
+  color: #111;
+}
+
+.platform-chip {
+  font-size: 0.72rem;
+  color: #9ca3af;
+}
+
+.time-ago {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  flex-shrink: 0;
+}
+
+.sim-img {
   width: 100%;
-  height: 100%;
+  height: 200px;
   object-fit: cover;
   display: block;
 }
 
-.author-line {
+.sim-text {
+  padding: 10px 14px 6px;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #1a1a2e;
+}
+
+.sim-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+  padding: 4px 14px 10px;
+}
+
+.sim-tag {
+  background: #f3f4f6;
+  color: #6b7280;
+  font-size: 0.7rem;
+  padding: 3px 9px;
+  border-radius: 99px;
+}
+
+.sim-actions {
+  display: flex;
+  gap: 8px;
+  padding: 10px 14px 14px;
+}
+
+.int-btn {
+  flex: 1;
+  padding: 9px 4px;
+  border-radius: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: #fff;
+  font-size: 0.78rem;
+  font-weight: 600;
+  font-family: inherit;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.int-btn:hover:not(:disabled) {
+  background: #f9fafb;
+  border-color: #d1d5db;
+  transform: scale(1.04);
+}
+
+.int-btn:disabled {
+  cursor: default;
+}
+
+.int-liked  { background: #fff1f2 !important; border-color: #fda4af !important; color: #e11d48; }
+.int-commented { background: #eff6ff !important; border-color: #93c5fd !important; color: #2563eb; }
+.int-watched { background: #faf5ff !important; border-color: #c4b5fd !important; color: #7c3aed; }
+
+/* ===================== ALGO PANEL (TELA 2) ===================== */
+.algo-panel {
+  background: #fff;
+  border-radius: 18px;
+  padding: 20px 18px;
+  box-shadow: 0 2px 14px rgba(0, 0, 0, 0.07);
+  border: 1.5px solid #f0f0f0;
+  position: sticky;
+  top: 16px;
+}
+
+.algo-panel h3 {
+  font-size: 0.88rem;
+  color: #1a1a2e;
+  margin-bottom: 18px;
+  line-height: 1.45;
+}
+
+.algo-empty {
+  font-size: 0.82rem;
+  color: #9ca3af;
+  line-height: 1.65;
+}
+
+.algo-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 11px;
+}
+
+.algo-label {
+  font-size: 0.78rem;
+  color: #374151;
+  min-width: 72px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.algo-track {
+  flex: 1;
+  height: 10px;
+  background: #f3f4f6;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.algo-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.45s ease;
+}
+
+.algo-val {
+  font-size: 0.72rem;
+  color: #9ca3af;
+  min-width: 26px;
+  text-align: right;
+}
+
+.algo-note {
+  margin-top: 14px;
+  font-size: 0.76rem;
+  color: #6b7280;
+  line-height: 1.55;
+  border-top: 1px solid #f3f4f6;
+  padding-top: 12px;
+}
+
+/* ===================== PROCEED WRAP ===================== */
+.proceed-wrap {
+  text-align: center;
+  margin: 0 0 24px;
+  animation: fadeUp 0.4s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== PROFILE PANEL (TELA 3) ===================== */
+.profile-panel {
+  background: linear-gradient(135deg, #1e1b4b, #312e81);
+  border-radius: 20px;
+  padding: 24px 26px;
+  margin-bottom: 32px;
+}
+
+.profile-panel h3 {
+  font-size: 0.95rem;
+  color: #c4b5fd;
+  margin-bottom: 20px;
+}
+
+.profile-bars {
   display: flex;
   flex-direction: column;
-  line-height: 1.2;
-  margin-right: auto;
+  gap: 13px;
 }
 
-.author-line strong {
-  font-size: 0.9rem;
-  color: #111;
-}
-
-.author-line span {
-  font-size: 0.75rem;
-  color: #6b7280;
-}
-
-.pill-ad {
-  background: #ffd84d;
-  color: #111;
-  border-radius: 999px;
-  font-size: 0.68rem;
-  font-weight: 800;
-  padding: 5px 9px;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-}
-
-.card-text {
-  margin: 10px 0 8px;
-  color: #111;
-  font-size: 0.95rem;
-  line-height: 1.42;
-}
-
-.post-image {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  border-radius: 10px;
-  margin-top: 10px;
-}
-
-.sponsor {
-  margin: 0 0 8px;
-  font-size: 0.78rem;
-  color: #6b7280;
-}
-
-.micro-actions {
+.profile-row {
   display: flex;
+  align-items: center;
   gap: 14px;
+}
+
+.profile-label {
+  font-size: 0.82rem;
+  color: #ddd6fe;
+  min-width: 108px;
+}
+
+.profile-track {
+  flex: 1;
+  height: 12px;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.profile-fill {
+  height: 100%;
+  border-radius: 99px;
+  transition: width 0.6s ease;
+}
+
+/* ===================== RECS GRID (TELA 3) ===================== */
+.recs-heading {
+  font-size: 1.1rem;
+  color: #1a1a2e;
+  margin: 0 0 18px;
+}
+
+.recs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(258px, 1fr));
+  gap: 20px;
+  margin-bottom: 36px;
+}
+
+.rec-card {
+  background: #fff;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.08);
+  border: 1.5px solid #f0f0f0;
+  transition: transform 0.2s;
+}
+
+.rec-card:hover {
+  transform: translateY(-3px);
+}
+
+.rec-ad-card {
+  border-color: #fbbf24;
+}
+
+.rec-img {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  display: block;
+}
+
+.rec-body {
+  padding: 14px;
+}
+
+.rec-text {
+  font-size: 0.88rem;
+  color: #1a1a2e;
+  line-height: 1.52;
+  margin-bottom: 10px;
+}
+
+.ad-badge {
+  display: inline-block;
+  background: #fef3c7;
+  color: #92400e;
+  border-radius: 99px;
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 4px 10px;
   margin-bottom: 8px;
-  font-size: 0.78rem;
-  color: #6b7280;
 }
 
-.actions button {
-  background: #f8f9fa;
-  border: 1px solid #e5e7eb;
-  color: #111;
+.ad-sponsor {
+  font-size: 0.75rem;
+  color: #9ca3af;
+  margin-bottom: 8px;
+}
+
+.rec-reasons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.reason-chip {
+  background: #f0fdf4;
+  border: 1px solid #86efac;
+  color: #15803d;
+  font-size: 0.7rem;
   font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 99px;
 }
 
-@media (max-width: 980px) {
-  .topbar {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+.reason-ad {
+  background: #fffbeb;
+  border-color: #fcd34d;
+  color: #b45309;
+}
+
+/* ===================== ALGO REVEAL (TELA 3) ===================== */
+.algo-reveal {
+  background: linear-gradient(135deg, #eef2ff, #e0e7ff);
+  border: 1px solid #c7d2fe;
+  border-radius: 18px;
+  padding: 22px 26px;
+  margin-bottom: 32px;
+}
+
+.algo-reveal h3 {
+  font-size: 1rem;
+  color: #4338ca;
+  margin-bottom: 14px;
+}
+
+.algo-steps {
+  padding-left: 20px;
+  color: #374151;
+  line-height: 1.9;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.algo-steps li {
+  margin-bottom: 2px;
+}
+
+.algo-steps strong {
+  color: #4338ca;
 }
